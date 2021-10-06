@@ -1,0 +1,647 @@
+* {
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(images/image-hero-desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: hsl(0, 0%, 98%);
+    font-family: 'Commissioner', sans-serif;;
+    padding: 22% 15% 10%;
+}
+
+h1, h2, h3, h4, .number {
+    font-weight: 700;
+}
+
+a, button, .bookmark > p {
+    font-weight: 500;
+}
+
+button {
+    background-color: hsl(176, 50%, 47%);
+    color: hsl(0, 0%, 100%);
+    font-family: 'Commissioner', sans-serif;
+    font-size: 16px;
+    width: 9.5em;
+    height: 2.5em;
+    border: none;
+    border-radius: 5em;
+}
+button:hover {
+    cursor: pointer;
+    background-color: hsl(176, 72%, 28%);
+}
+
+p {
+    color: hsl(176, 50%, 47%);
+    font-weight: 400;
+}
+
+.no-stocks::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: hsla(0, 0%, 100%, 0.8);
+}
+
+.no-stocks > input {
+    display: none;
+}
+
+
+
+/* ----NAV---- */
+nav {
+    position: fixed;
+    display: flex;
+    width: 70%;
+    left: 50%;
+    transform: translate(-50%);
+    top: 0;
+    padding: 0.5em 0;
+    z-index: 2;
+}
+
+nav > img {
+    width: 140px;
+    z-index: 3;
+}
+
+nav ul {
+    display: flex;
+    gap: 1em;
+    margin-left: auto;
+}
+
+nav a {
+    color: hsl(0, 0%, 100%);
+    font-size: 18px;
+}
+
+/* --Nav mobile stuff-- */
+#check, .close, .hamburger {
+    display: none;
+}
+.checkbtn {
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 3;
+}
+
+#check:checked ~ .checkbtn > .close {
+    display: inline;
+}
+#check:checked ~ ul {
+    display: flex;
+}
+#check:checked ~ .checkbtn > .hamburger {
+    display: none;
+}
+
+/* --Nav scroll active-- */
+.scrolling-active {
+    background-color: hsl(176, 72%, 28%);
+    width: 80%;
+    padding: 1em 2em;
+    transition: 1s;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    box-shadow: 5px 1px 6px hsla(0, 0%, 0%, 0.2);
+}
+
+.scrolling-active > img {
+    width: 128px;
+}
+
+.scrolling-active a {
+    font-size: 16px;
+}
+
+
+
+/* --------MAIN-------- */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+main > section {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 1em;
+}
+
+
+/* ----Section 1---- */
+.section1 {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3em 6em 2.5em;
+}
+
+.section1 > img {
+    position: absolute;
+    width: 4.5em;
+    left: 50%;
+    transform: translate(-50%);
+    top: -2.5rem;
+}
+
+.section1 > h1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 0.1em;
+}
+
+.section1 > p {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 1em;
+}
+
+.section1 > button {
+    font-size: 20px;
+    height: 3em;
+    width: 11em;
+}
+
+#bookmark {
+    display: none;
+}
+
+.bookmark {
+    background-color: hsl(0, 0%, 98%);
+    display: flex;
+    gap: 0.5em;
+    justify-self: right;
+    width: 12.5em;
+    border-radius: 12em;
+    cursor: pointer;
+}
+
+.bookmark p {
+    color: hsl(176, 72%, 28%);
+    font-size: 20px;
+    margin: auto 0;
+}
+
+
+/* ----Section 2---- */
+.section2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    padding: 2.5em 6em;
+}
+
+.section2 h2 {
+    font-size: 38px;
+}
+
+.section2 p {
+    font-size: 22px;
+}
+
+.part1, .part2 {
+    border-right: 0.2em solid hsl(0, 0%, 98%);
+}
+
+.bar {
+    background-color: hsl(0, 0%, 98%);
+    grid-column-start: 1;
+    grid-column-end: 4;
+    height: 1rem;
+    border-radius: 5rem;
+}
+
+.bar div {
+    background-color: hsl(176, 72%, 28%);
+    height: 1rem;
+    width: 80%;
+    border-radius: 5rem;
+}
+
+
+/* ----Section 3---- */
+.section3 {
+    padding: 2.5em 6em;
+}
+
+.section3 > h3 {
+    font-size: 32px;
+    margin-bottom: 1em;
+}
+
+.section3 > p {
+    font-size: 18px;
+}
+
+/* --Sub sections-- */
+.sub-sections {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1em;
+    border: 0.2em solid hsl(0, 0%, 98%);
+    padding: 2em;
+    margin-top: 2em;
+}
+
+.pledges, .sub-sections > button {
+    justify-self: right;
+}
+
+.sub-sections > h4 {
+    font-size: 17px;
+}
+
+.sub-sections > p {
+    font-size: 16px;
+}
+
+.leftovers {
+    display: flex;
+}
+
+.number {
+    color: hsl(0, 0%, 0%);
+    font-size: 34px;
+}
+
+.paragraph {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+
+/* ----Section 4---- */
+.section4 {
+    background-color: hsl(0, 0%, 100%);
+    position: fixed;
+    display: none;
+    box-shadow: 0px 0px 240px hsl(0, 0%, 0%);
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em 5em;
+    border-radius: 1em;
+    z-index: 4;
+}
+
+.section4 h1 {
+    font-size: 28px;
+    display: inline;
+}
+
+.section4 > p {
+    font-size: 20px;
+    margin-top: 0.2em;
+}
+
+.section4 > img {
+    position: absolute;
+    cursor: pointer;
+    top: 2.8em;
+    right: 5.2em;
+}
+
+/* --Pledge selection-- */
+.select-pledge {
+    position: relative;
+    border: 0.2em solid hsl(0, 0%, 98%);
+    margin-top: 1em;
+    padding: 1em 1em 1em 2.5em;
+}
+
+.pledge-input {
+    position: absolute;
+    left: 1em;
+}
+
+.pledge-label {
+    cursor: pointer;
+}
+
+.basic-info {
+    display: flex;
+}
+
+.select-pledge h2 {
+    font-size: 17px;
+    margin-right: 0.5em;
+}
+
+.basic-info > p {
+    font-size: 16px;
+    margin: auto 0;
+}
+
+.leftovers {
+    position: absolute;
+    top: 1em;
+    right: 2.2em;
+}
+
+.select-pledge .number {
+    font-size: 16px;
+    margin-right: 0.3em;
+}
+
+/* --enter pledge-- */
+.enter-pledge {
+    display: none;
+    margin-top: 0.5em;
+}
+
+.pledge1 button {
+    margin-left: auto;
+}
+
+.enter-pledge > p {
+    margin: auto 0 auto;
+}
+
+.dollar {
+    position: absolute;
+    bottom: 1.7em;
+    right: 14.5em;
+}
+
+.enter-pledge > input {
+    color: hsl(176, 50%, 47%);
+    width: 80px;
+    border-style: solid;
+    border-radius: 1em;
+    padding-left: 2.2em;
+    margin: 0 1em 0 auto;
+}
+
+
+/* ----Section 5---- */
+.section5 {
+    background-color: hsl(0, 0%, 100%);
+    position: fixed;
+    display: none;
+    text-align: center;
+    box-shadow: 0px 0px 240px hsl(0, 0%, 0%);
+    width: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.5em;
+    border-radius: 1em;
+    z-index: 4;
+}
+
+.section5 p {
+    margin: 0.5em 0;
+}
+
+
+
+
+@media (max-width: 1280px) {
+    /* --------MAIN-------- */
+    /* ----Section 1---- */
+    .section1 {
+        padding: 2em 3em;
+    }
+    .section1 > img {
+        width: 56px;
+        top: -2em;
+    }
+    .section1 > h1 {
+        font-size: 32px;
+    }
+    .section1 > p {
+        font-size: 18px;
+    }
+    .section1 > button {
+        font-size: 17px;
+        width: 10em;
+    }
+    .bookmark {
+        width: 11em;
+    }
+    .bookmark p {
+        font-size: 17px;
+    }
+
+    /* ----Section 2---- */
+    .section2 {
+        padding: 2.5em 3em;
+        gap: 0.5em;
+    }
+    .section2 h2 {
+        font-size: 32px;
+    }
+    .section2 p {
+        font-size: 16px;
+    }
+
+    /* ----Section 3---- */
+    .section3 {
+        padding: 2.5em 3em;
+    }
+    .section3 > h3 {
+        font-size: 28px;
+        margin-bottom: 0.5em;
+    }
+    .section3 > p {
+        font-size: 18px;
+    }
+    /* --Sub sections-- */
+    .sub-sections > h4 {
+        font-size: 16px;
+    }
+    .sub-sections > p {
+        font-size: 15px;
+    }
+    .number {
+        font-size: 32px;
+    }
+    .sub-sections button {
+        font-size: 15px;
+        height: 2.2em;
+        width: 8.5em;
+    }
+
+    /* ----Section 5---- */
+    .section5 {
+        width: 45%;
+    }
+}
+
+@media (max-width: 980px) {
+    body {
+        padding: 18% 10% 10%;
+    }
+
+    /* --------NAV-------- */
+    nav {
+        width: 80%;
+    }
+    nav > img {
+        width: 128px;
+    }
+    nav > ul {
+        background-color: hsl(0, 0%, 100%);
+        position: absolute;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0px 0px 240px hsl(0, 0%, 0%);
+        width: 95%;
+        top: 4em;
+        left: 50%;
+        transform: translate(-50%);
+        padding: 2em;
+        border-radius: 1em;
+    }
+    nav li {
+        padding-bottom: 0.5em;
+        border-bottom: hsl(0, 0%, 98%) 0.15em solid;
+    }
+    nav a {
+        color: hsl(0, 0%, 0%);
+        font-size: 18px;
+    }
+    /* --Nav mobile stuff-- */
+    .hamburger {
+        display: inline;
+    }
+    /* --Nav scroll active-- */
+    .scrolling-active {
+        width: 88%;
+    }
+    .scrolling-active > img {
+        width: 110px;
+    }
+
+    /* --------MAIN-------- */
+    /* ----Section 1---- */
+    .section1 {
+        padding: 2em;
+    }
+    .section1 > h1 {
+        font-size: 26px;
+    }
+    .section1 > p {
+        font-size: 16px;
+    }
+    .section1 > button {
+        font-size: 15px;
+        width: 10em;
+    }
+    .bookmark {
+        width: 3em;
+        height: 3em;
+    }
+    .bookmark img {
+        width: 3em;
+        height: 3em;
+    }
+    .bookmark p {
+        display: none;
+    }
+
+    /* ----Section 2---- */
+    .section2 {
+        text-align: center;
+        padding: 2em;
+    }
+    .section2 h2 {
+        font-size: 27px;
+    }
+    .part1, .part2, .part3 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        padding-bottom: 1em;
+        border-right: none;
+        border-bottom: 0.2em solid hsl(0, 0%, 98%);
+    }
+
+    /* ----Section 3---- */
+    .section3 {
+        padding: 2em;
+    }
+    .section3 > h3 {
+        font-size: 25px;
+    }
+    .section3 > p {
+        font-size: 16px;
+    }
+    /* --Sub sections-- */
+    .sub-sections {
+        row-gap: 0.5em;
+    }
+    .sub-sections > h4 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .sub-sections > p {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        justify-self: left;
+        font-size: 15px;
+    }
+    .number {
+        font-size: 28px;
+    }
+
+    /* ----Section 4---- */
+    .section4 {
+        position: absolute;
+        top: 80%;
+        width: 85%;
+        padding: 2em;
+    }
+    .section4 h1 {
+        font-size: 20px;
+    }
+    .section4 > p {
+        font-size: 18px;
+    }
+    /* --Pledge selection-- */
+    .leftovers {
+        position: static;
+    }
+    /* --enter pledge-- */
+    .enter-pledge {
+        border-top: hsl(176, 50%, 47%) 2px solid;
+        margin-top: 0.2em;
+    }
+    .enter-pledge > .enter-amount {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    .dollar {
+        left: 3.5em;
+    }
+    .enter-pledge > input {
+        margin: 2em 0 0;
+    }
+    .enter-pledge > button {
+        margin: 2em 0 0 auto;
+    }
+
+    /* ----Section 5---- */
+    .section5 {
+        width: 60%;
+    }
+}
