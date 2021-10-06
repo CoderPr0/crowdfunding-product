@@ -351,7 +351,7 @@ main > section {
     margin: auto 0;
 }
 
-.leftovers {
+.select-pledge .leftovers {
     position: absolute;
     top: 1em;
     right: 2.2em;
@@ -617,7 +617,7 @@ main > section {
         font-size: 18px;
     }
     /* --Pledge selection-- */
-    .leftovers {
+    .select-pledge .leftovers {
         position: static;
     }
     /* --enter pledge-- */
